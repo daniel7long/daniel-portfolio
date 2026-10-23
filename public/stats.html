@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Visitor stats</title>
+    <style>
+      :root { --bg:#080c18; --card:#0e1424; --border:#1d2842; --text:#f4f6fb; --muted:#a9b4cc; --blue:#60a5fa; }
+      * { box-sizing: border-box; }
+      body { margin:0; padding:32px 24px 80px; background:var(--bg); color:var(--text);
+             font:15px/1.5 Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+      .wrap { max-width: 1200px; margin: 0 auto; }
+      h1 { margin:0 0 4px; font-size:1.6rem; letter-spacing:-0.02em; }
+      .sub { margin:0 0 24px; color:var(--muted); }
+      form, .bar { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:20px; }
+      input { padding:10px 14px; min-width:260px; color:var(--text); background:var(--card);
+              border:1px solid var(--border); border-radius:10px; font:inherit; }
+      button { padding:10px 18px; color:#07101f; background:var(--blue); border:0; border-radius:10px;
+               font:inherit; font-weight:600; cursor:pointer; }
+      button.ghost { color:var(--text); background:transparent; border:1px solid var(--border); }
+      .msg { color:var(--muted); }
+      .msg.err { color:#f87171; }
+      .scroll { overflow-x:auto; border:1px solid var(--border); border-radius:14px; background:var(--card); }
+      table { width:100%; border-collapse:collapse; min-width:860px; }
+      th, td { padding:10px 14px; text-align:left; border-bottom:1px solid var(--border); vertical-align:top; }
+      th { color:var(--muted); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; white-space:nowrap; }
+      tr.main { cursor:pointer; }
+      tr.main:hover td { background:rgba(96,165,250,.06); }
+      tr:last-child td { border-bottom:0; }
+      td.num, th.num { text-align:right; font-variant-numeric:tabular-nums; }
+      .ip { font-family:ui-monospace, Menlo, Consolas, monospace; }
+      .dim { color:var(--muted); }
+      tr.detail td { background:#0a1020; }
+      tr.detail ul { margin:0; padding-left:18px; color:var(--muted); font-size:.9rem; }
+      [hidden] { display:none !important; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Visitor stats</h1>
+      <p class="sub">Who visited, and how long they stayed in each section. Click a row for individual visits.</p>
+
+      <form id="login">
+        <input id="token" type="password" placeholder="Stats token" autocomplete="current-password" required />
+        <button type="submit">View stats</button>
+        <span id="msg" class="msg"></span>
+      </form>
+
+      <div id="app" hidden>
+        <div class="bar">
+          <button id="refresh" class="ghost" type="button">Refresh</button>
+          <button id="logout" class="ghost" type="button">Sign out</button>
+          <span id="summary" class="msg"></span>
+        </div>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>IP address</th><th>Location</th><th class="num">Visits</th><th>Last visit</th>
+                <th class="num">Hero</th><th class="num">Work</th><th class="num">About</th>
+                <th class="num">Contact</th><th>Project pages</th><th class="num">Total</th>
+              </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const $ = (id) => document.getElementById(id);
+      const MAIN = ["hero", "work", "about", "contact"];
+
+      function el(tag, text, cls) {
+        const n = document.createElement(tag);
+        if (text != null) n.textContent = text;   // textContent only: visitor data is never parsed as HTML
+        if (cls) n.className = cls;
+        return n;
+      }
+      function fmt(sec) {
+        sec = Math.round(sec || 0);
+        if (!sec) return "–";
+        const m = Math.floor(sec / 60), s = sec % 60;
+        return m ? `${m}m ${String(s).padStart(2, "0")}s` : `${s}s`;
+      }
+      function when(ms) { return ms ? new Date(ms).toLocaleString() : "–"; }
+      function place(s) { return [s.city, s.country].filter(Boolean).join(", ") || "–"; }
+      function projectsText(times) {
+        return Object.entries(times).filter(([k]) => k.startsWith("project:"))
+          .map(([k, v]) => `${k.slice(8)} ${fmt(v)}`).join(", ") || "–";
+      }
+      function addTimes(target, src) {
+        for (const [k, v] of Object.entries(src)) target[k] = (target[k] || 0) + v;
+      }
+      const sum = (times) => Object.values(times).reduce((a, b) => a + b, 0);
+
+      function render(sessions) {
+        const byIp = new Map();
+        for (const s of sessions) {
+          const key = s.ip || "unknown";
+          if (!byIp.has(key)) byIp.set(key, { ip: key, loc: place(s), last: 0, times: {}, list: [] });
+          const g = byIp.get(key);
+          g.last = Math.max(g.last, s.last);
+          addTimes(g.times, s.sections);
+          g.list.push(s);
+        }
+        const groups = [...byIp.values()].sort((a, b) => b.last - a.last);
+
+        $("summary").textContent = `${groups.length} visitor IPs · ${sessions.length} visits`;
+        const body = $("rows");
+        body.replaceChildren();
+        if (!groups.length) {
+          const tr = el("tr"); const td = el("td", "No visits recorded yet."); td.colSpan = 10;
+          tr.append(td); body.append(tr); return;
+        }
+
+        for (const g of groups) {
+          const tr = el("tr", null, "main");
+          tr.append(el("td", g.ip, "ip"), el("td", g.loc), el("td", String(g.list.length), "num"),
+                    el("td", when(g.last)));
+          for (const name of MAIN) tr.append(el("td", fmt(g.times[name]), "num"));
+          tr.append(el("td", projectsText(g.times), "dim"), el("td", fmt(sum(g.times)), "num"));
+
+          const detail = el("tr", null, "detail"); detail.hidden = true;
+          const cell = el("td"); cell.colSpan = 10;
+          const ul = el("ul");
+          for (const s of g.list.sort((a, b) => b.first - a.first)) {
+            const parts = Object.entries(s.sections).map(([k, v]) => `${k} ${fmt(v)}`).join(" · ") || "no time recorded";
+            ul.append(el("li", `${when(s.first)} — ${parts}`));
+          }
+          cell.append(ul); detail.append(cell);
+
+          tr.addEventListener("click", () => { detail.hidden = !detail.hidden; });
+          body.append(tr, detail);
+        }
+      }
+
+      async function load() {
+        const token = sessionStorage.getItem("statsToken");
+        $("msg").textContent = ""; $("msg").className = "msg";
+        try {
+          const res = await fetch("/api/stats", { headers: { Authorization: "Bearer " + token } });
+          if (res.status === 401) throw new Error("Wrong token.");
+          if (!res.ok) throw new Error("Server error (" + res.status + "). Is the database connected?");
+          const data = await res.json();
+          $("login").hidden = true; $("app").hidden = false;
+          render(data.sessions);
+        } catch (err) {
+          sessionStorage.removeItem("statsToken");
+          $("login").hidden = false; $("app").hidden = true;
+          $("msg").textContent = err.message; $("msg").className = "msg err";
+        }
+      }
+
+      $("login").addEventListener("submit", (e) => {
+        e.preventDefault();
+        sessionStorage.setItem("statsToken", $("token").value.trim());
+        $("token").value = "";
+        load();
+      });
+      $("refresh").addEventListener("click", load);
+      $("logout").addEventListener("click", () => {
+        sessionStorage.removeItem("statsToken");
+        $("app").hidden = true; $("login").hidden = false;
+      });
+      if (sessionStorage.getItem("statsToken")) load();
+    </script>
+  </body>
+</html>
