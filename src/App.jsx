@@ -9,10 +9,16 @@ import { projects } from "./data/projects.js";
 import { site } from "./data/site.js";
 import { useRoute, getSavedScroll } from "./router.js";
 import { useTracking } from "./tracking.js";
+import { warmUp } from "./warmup.js";
 
 export default function App() {
   const route = useRoute();
   useTracking(route);
+
+  // Wake sleeping demo backends while the visitor browses.
+  useEffect(() => {
+    warmUp(projects);
+  }, []);
 
   // We restore scroll positions ourselves (see below).
   useEffect(() => {
