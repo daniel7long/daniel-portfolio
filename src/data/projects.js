@@ -44,7 +44,7 @@ export const projects = [
     liveDemo: "https://langogo-v3.vercel.app",
 
     role: "Front-End Developer",
-    status: "Live demo · CMU Online Learning Center",
+    status: "Live demo · Langogo v3.2",
     overview:
       "Langogo is built around one idea: speaking gets easier when practising feels safe. Learners rehearse real dialogues out loud, get immediate pronunciation feedback and can retry as often as they like, with no audience and no pressure. It supports French, Spanish, German, Japanese, Korean and Mandarin Chinese.",
     problem:
@@ -94,7 +94,7 @@ export const projects = [
     liveDemo: "https://softutter.vercel.app",
 
     role: "Front-End Developer",
-    status: "Live demo · SoftUtter 2.0",
+    status: "Live demo · SoftUtter v3.0",
     overview:
       "Learners often know what they want to say but not how to say it in a new language. SoftUtter takes a rough attempt, spoken or typed, and uses a large language model to scaffold it into a target sentence with audio. The first version was a focused prototype for French learners; SoftUtter 2.0 is a redesigned, much richer web app that supports six languages.",
     problem:
@@ -137,7 +137,7 @@ export const projects = [
     liveDemo: "https://lumina-learning-qz52.onrender.com",
 
     role: "Front-End Developer",
-    status: "Live demo · English course, Units 1–3",
+    status: "Live demo · CMU Online Learning Platform 2.0",
     overview:
       "Lumina is an online course learning platform designed to grow. Learners work through an English course in a dedicated learner app, administrators use a separate admin console, and an AI assistant supports learners along the way. It is a real multi-part system rather than a single front end.",
     problem:
@@ -171,7 +171,7 @@ export const projects = [
     liveDemo: "https://iread-rust.vercel.app",
 
     role: "Front-End Developer",
-    status: "Live demo · UX case study build",
+    status: "Live demo · iRead 2.1",
     overview:
       "iRead is a reading app for people navigating dyslexia. It makes text easier to approach with syllable help, read-aloud and a personal word bank, all inside a deliberately quiet interface. It is the working build of my UX case study, which covered research, wireframes, high-fidelity mock-ups and an interactive prototype before any code was written.",
     problem:
@@ -207,7 +207,7 @@ export const projects = [
     liveDemo: "https://ap-master.onrender.com",
 
     role: "Front-End Developer",
-    status: "Live demo",
+    status: "Live demo · AP Master v2.0",
     overview:
       "AP Master brings structured practice, trial courses and a personal study hub together in one calm, teal-themed experience. It is an English-language web adaptation of an existing mobile product: the information architecture and visual language were carried over, then redesigned and rebuilt for the web.",
     problem:
@@ -242,7 +242,7 @@ export const projects = [
     liveDemo: "https://welearn-lac.vercel.app",
 
     role: "Front-End Developer",
-    status: "Live demo",
+    status: "Live demo · WeLearn v3.0",
     overview:
       "WeLearn is a learning management system designed for phones first. Every learner signs up, logs in and gets their own hub: a personal dashboard that keeps their learning in one place. It is an English rebuild of the WeLearn LMS, whose original edition serves more than 23,000 users.",
     problem:
