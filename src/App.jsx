@@ -26,7 +26,7 @@ export default function App() {
     const project = route.name === "project" && projects.find((p) => p.id === route.id);
     document.title = project
       ? `${project.title} — ${site.name}`
-      : `${site.name} — ${site.title} & UX Designer`;
+      : `${site.name} — ${site.title}`;
   }, [route.name, route.id]);
 
   // Scroll handling when switching between the home page and a project page.

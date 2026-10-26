@@ -12,6 +12,18 @@ function GitHubIcon() {
   );
 }
 
+function LinkedInIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" focusable="false">
+      <rect width="24" height="24" rx="4" fill="#0a7bbd" />
+      <path
+        fill="#fff"
+        d="M6.94 9.5H4.2V19h2.74V9.5ZM5.57 5a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2ZM19.8 13.8c0-2.5-1.35-4.5-3.6-4.5-1.1 0-1.9.55-2.3 1.2V9.5h-2.63V19H13.9v-5.2c0-1.4.65-2.2 1.7-2.2 1 0 1.5.7 1.5 2.2V19h2.7v-5.2Z"
+      />
+    </svg>
+  );
+}
+
 export default function Contact() {
   const { contact, name } = site;
   return (
@@ -32,15 +44,28 @@ export default function Contact() {
         </div>
 
         <div className="contact__row contact__row--bottom">
-          <a
-            className="contact__github"
-            href={contact.github.href}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <GitHubIcon />
-            <span>{contact.github.label}</span>
-          </a>
+          <div className="contact__social">
+            <a
+              className="contact__icon"
+              href={contact.github.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${name} on GitHub`}
+              title="GitHub"
+            >
+              <GitHubIcon />
+            </a>
+            <a
+              className="contact__icon"
+              href={contact.linkedin.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${name} on LinkedIn`}
+              title="LinkedIn"
+            >
+              <LinkedInIcon />
+            </a>
+          </div>
 
           <p className="contact__copy">
             © {new Date().getFullYear()} {name}. All Rights Reserved.

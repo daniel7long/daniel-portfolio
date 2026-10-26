@@ -35,7 +35,8 @@ export const site = {
       "5000 Forbes Avenue",
       "Pittsburgh, PA 15213",
     ],
-    github: { label: "My GitHub", href: "https://github.com/daniel7long" },
+    github: { label: "GitHub", href: "https://github.com/daniel7long" },
+    linkedin: { label: "LinkedIn", href: "https://www.linkedin.com/in/daniel-hao-long" },
     // Shown in handwriting at the very bottom of the site.
     quote: {
       text: "People who are crazy enough to think they can change the world are the ones who do.",

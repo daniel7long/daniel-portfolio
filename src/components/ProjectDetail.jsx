@@ -1,6 +1,7 @@
 import { projects } from "../data/projects.js";
 import { initials, pad } from "../utils.js";
 import ProjectCard from "./ProjectCard.jsx";
+import "../thumbs.css";
 
 function Row({ label, children }) {
   return (
@@ -55,6 +56,7 @@ export default function ProjectDetail({ id }) {
   const {
     thumbnail,
     type,
+    name,
     title,
     abstract,
     stack,
@@ -69,7 +71,6 @@ export default function ProjectDetail({ id }) {
     implementation,
     outcome,
     roadmap,
-    repo,
   } = project;
 
   // Up to two other projects, starting with the one after this one.
@@ -83,7 +84,7 @@ export default function ProjectDetail({ id }) {
           <span aria-hidden="true">/</span>
           <a href="#work">Projects</a>
           <span aria-hidden="true">/</span>
-          <span aria-current="page">{title}</span>
+          <span aria-current="page">{name || title}</span>
         </nav>
 
         <span className="pd__eyebrow">
@@ -154,9 +155,9 @@ export default function ProjectDetail({ id }) {
               <p>{overview}</p>
             </Row>
           )}
-          {role && (
-            <Row label="My role">
-              <p>{role}</p>
+          {stack && stack.length > 0 && (
+            <Row label="Tech stack">
+              <Chips items={stack} />
             </Row>
           )}
           {problem && (
@@ -177,11 +178,6 @@ export default function ProjectDetail({ id }) {
           {design && design.length > 0 && (
             <Row label="Design & UX highlights">
               <DashList items={design} />
-            </Row>
-          )}
-          {stack && stack.length > 0 && (
-            <Row label="Technology stack">
-              <Chips items={stack} />
             </Row>
           )}
           {implementation && implementation.length > 0 && (
@@ -208,16 +204,9 @@ export default function ProjectDetail({ id }) {
                   </a>
                 </li>
               )}
-              {repo && (
+              {!liveDemo && (
                 <li>
-                  <a href={repo} target="_blank" rel="noopener noreferrer">
-                    Source code ↗
-                  </a>
-                </li>
-              )}
-              {!liveDemo && !repo && (
-                <li>
-                  No public demo or repository is listed for this project. If you'd like to know
+                  No public demo is listed for this project. If you'd like to know
                   more about it, <a href="#contact">get in touch</a>.
                 </li>
               )}

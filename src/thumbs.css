@@ -1,0 +1,6 @@
+/* Project thumbnails on the details page (imported by ProjectDetail.jsx) */
+.pd-hero__media img {
+  position: absolute;
+  inset: 0;
+  display: block;
+}

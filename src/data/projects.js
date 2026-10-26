@@ -5,6 +5,7 @@
 // created automatically. The order of this array is the order on the site.
 //
 // CARD fields (shown on the home page)
+//   name       : short project name (shown in the breadcrumb)
 //   id         : unique, URL-friendly name (used in the details-page link)
 //   thumbnail  : image in /public/images (e.g. "/images/langogo.png").
 //                "" shows a gradient placeholder instead.
@@ -25,7 +26,6 @@
 //   implementation : list — engineering / implementation highlights
 //   outcome        : results / what you learned
 //   roadmap        : list — what comes next
-//   repo           : GitHub URL
 //
 // The detail text is based on each project's README. Tech stacks only list
 // what is confirmed; add the rest of each stack when you are ready.
@@ -34,15 +34,16 @@
 export const projects = [
   {
     id: "langogo",
-    thumbnail: "",
+    name: "Langogo",
+    thumbnail: "/images/thumb-langogo.jpg",
     type: "Mobile Application",
-    title: "Langogo, Top-Rated Language Learning App",
+    title: "Langogo, Speak Without the Fear",
     abstract:
       "A language learning app focusing on low-anxiety speaking practice with immediate feedback.",
-    stack: ["Expo / React Native", "FastAPI", "Azure Speech", "Figma"],
+    stack: ["React Native", "Expo", "Python", "FastAPI"],
     liveDemo: "https://langogo-v3.vercel.app",
 
-    role: "UX Designer & Front-End Developer",
+    role: "Front-End Developer",
     status: "Live demo · CMU Online Learning Center",
     overview:
       "Langogo is built around one idea: speaking gets easier when practising feels safe. Learners rehearse real dialogues out loud, get immediate pronunciation feedback and can retry as often as they like, with no audience and no pressure. It supports French, Spanish, German, Japanese, Korean and Mandarin Chinese.",
@@ -83,15 +84,16 @@ export const projects = [
   },
   {
     id: "softutter",
-    thumbnail: "",
+    name: "SoftUtter",
+    thumbnail: "/images/thumb-softutter.jpg",
     type: "AI-Powered Web App",
     title: "SoftUtter, LLM-Driven Speech Scaffolding",
     abstract:
       "An LLM-driven speech scaffolding tool that turns a learner's rough attempt into a target sentence with audio, so they can hear it, repeat it and make it their own.",
-    stack: ["LLM API", "Speech audio", "Figma", "Vercel"],
+    stack: ["React 19", "Vite", "JSX", "Python", "SQLite"],
     liveDemo: "https://softutter.vercel.app",
 
-    role: "UX Designer & Front-End Developer",
+    role: "Front-End Developer",
     status: "Live demo · SoftUtter 2.0",
     overview:
       "Learners often know what they want to say but not how to say it in a new language. SoftUtter takes a rough attempt, spoken or typed, and uses a large language model to scaffold it into a target sentence with audio. The first version was a focused prototype for French learners; SoftUtter 2.0 is a redesigned, much richer web app that supports six languages.",
@@ -124,16 +126,51 @@ export const projects = [
     ],
   },
   {
+    id: "lumina",
+    name: "Lumina",
+    thumbnail: "/images/thumb-lumina.jpg",
+    type: "Full-Stack Platform",
+    title: "Lumina, Online Course Learning Platform",
+    abstract:
+      "A learner app, an admin console and an API working together, with an AI assistant for learners.",
+    stack: ["React 19", "JSX", "Node.js", "OpenAI API"],
+    liveDemo: "https://lumina-learning-qz52.onrender.com",
+
+    role: "Front-End Developer",
+    status: "Live demo · English course, Units 1–3",
+    overview:
+      "Lumina is an online course learning platform designed to grow. Learners work through an English course in a dedicated learner app, administrators use a separate admin console, and an AI assistant supports learners along the way. It is a real multi-part system rather than a single front end.",
+    problem:
+      "Learners and administrators have very different needs. A single interface would serve neither well, so each needed its own purpose-built product backed by shared services.",
+    built: [
+      "A learner app for working through the English course, Units 1–3.",
+      "A dedicated admin console, separate from the learner experience.",
+      "An AI learning assistant powered by the OpenAI API.",
+      "One API behind both the learner app and the admin console.",
+    ],
+    features: ["Learner app", "Admin console", "AI assistant", "Shared API", "Unit-based course"],
+    design: [
+      "Two products, one system: learners and administrators each get an interface made for them.",
+      "A structured learning path: the course is organised into units so learners always know where they are.",
+    ],
+    implementation: [
+      "Built with growth in mind: the learner app, admin console and API are separate parts, so each can change independently as the user base grows.",
+      "AI built in: an assistant is part of the learning experience instead of a separate tool.",
+      "Hosted on Render. If the demo has been idle, the first request may take a few seconds.",
+    ],
+  },
+  {
     id: "iread",
-    thumbnail: "",
+    name: "iRead",
+    thumbnail: "/images/thumb-iread.jpg",
     type: "Progressive Web App",
     title: "iRead, Reading That Feels Natural",
     abstract:
       "A calm, dyslexia-friendly reading app with syllable help, read-aloud and a personal word bank.",
-    stack: ["React", "TypeScript", "PWA", "Figma"],
+    stack: ["React 19", "Vite 7", "TypeScript", "CSS"],
     liveDemo: "https://iread-rust.vercel.app",
 
-    role: "UX Researcher, Designer & Front-End Developer",
+    role: "Front-End Developer",
     status: "Live demo · UX case study build",
     overview:
       "iRead is a reading app for people navigating dyslexia. It makes text easier to approach with syllable help, read-aloud and a personal word bank, all inside a deliberately quiet interface. It is the working build of my UX case study, which covered research, wireframes, high-fidelity mock-ups and an interactive prototype before any code was written.",
@@ -159,50 +196,17 @@ export const projects = [
     roadmap: ["Complete the remaining tablet-landscape screens."],
   },
   {
-    id: "welearn",
-    thumbnail: "",
-    type: "Learning Management App",
-    title: "WeLearn, Mobile-First LMS in English",
-    abstract:
-      "A mobile-first learning management app where every learner signs up and gets a personal hub.",
-    stack: ["Mobile-first web", "Vercel", "Git / GitHub"],
-    liveDemo: "https://welearn-lac.vercel.app",
-
-    role: "UX Designer & Front-End Developer",
-    status: "Live demo",
-    overview:
-      "WeLearn is a learning management system designed for phones first. Every learner signs up, logs in and gets their own hub: a personal dashboard that keeps their learning in one place. It is an English rebuild of the WeLearn LMS, whose original edition serves more than 23,000 users.",
-    problem:
-      "The original interface served a large user base but only in its original language. The goal was to rebuild it as a clean, product-grade English experience without carrying over every screen.",
-    built: [
-      "Sign up and log in with a personal account.",
-      "A personal hub: each learner lands on their own space instead of a generic home page.",
-      "Mobile-first layouts designed for small screens first.",
-      "A fully English interface, with copy and labels written for English-speaking learners.",
-    ],
-    features: ["Sign up / log in", "Personal hub", "Mobile-first", "English UI"],
-    design: [
-      "Clarity over feature parity: screens such as reward listings were open to being simplified or cut so the app stays clean and intuitive.",
-      "A teal identity carried through the browser theme colour and the interface.",
-      "Rebuilt from screens alone: with no UI source code, the information architecture, component patterns and flows were reconstructed from the existing interface, then redesigned.",
-      "A safe-area aware layout for modern phones.",
-    ],
-    implementation: [
-      "Git-to-production workflow: deployed from Git to Vercel, so the live demo updates with a push.",
-      "Product-grade scope: the English counterpart of a product with a large existing user base, not a throwaway demo.",
-    ],
-  },
-  {
     id: "ap-master",
-    thumbnail: "",
+    name: "AP Master",
+    thumbnail: "/images/thumb-ap-master.jpg",
     type: "Mobile-First Web App",
-    title: "AP Master, AP Exam Practice",
+    title: "AP Master, Turn Mistakes into Top Scores",
     abstract:
       "A mobile-first web app that helps students around the world prepare for AP exams with practice, trial courses and a personal study hub.",
-    stack: ["Mobile-first web", "Render", "Git / GitHub"],
+    stack: ["TypeScript", "React", "Vite", "Render"],
     liveDemo: "https://ap-master.onrender.com",
 
-    role: "UX Designer & Front-End Developer",
+    role: "Front-End Developer",
     status: "Live demo",
     overview:
       "AP Master brings structured practice, trial courses and a personal study hub together in one calm, teal-themed experience. It is an English-language web adaptation of an existing mobile product: the information architecture and visual language were carried over, then redesigned and rebuilt for the web.",
@@ -225,39 +229,40 @@ export const projects = [
       "A Git-based workflow: code lives on GitHub and is deployed to Render from the repository.",
       "Three clearly separated flows (Practice, Courses and Profile hub) share one visual system.",
     ],
-    repo: "https://github.com/daniel7long/ap-master",
   },
   {
-    id: "lumina",
-    thumbnail: "",
-    type: "Full-Stack Platform",
-    title: "Lumina, Online Course Learning Platform",
+    id: "welearn",
+    name: "WeLearn",
+    thumbnail: "/images/thumb-welearn.jpg",
+    type: "Learning Management App",
+    title: "WeLearn, Your Whole Learning Journey in One Hub",
     abstract:
-      "A learner app, an admin console and an API working together, with an AI assistant for learners.",
-    stack: ["Learner app", "Admin console", "API", "OpenAI API", "Render"],
-    liveDemo: "https://lumina-learning-qz52.onrender.com",
+      "A mobile-first learning management app where every learner signs up and gets a personal hub.",
+    stack: ["React 19", "TypeScript", "Vite", "CSS"],
+    liveDemo: "https://welearn-lac.vercel.app",
 
-    role: "Full-Stack Developer & UX Designer",
-    status: "Live demo · English course, Units 1–3",
+    role: "Front-End Developer",
+    status: "Live demo",
     overview:
-      "Lumina is an online course learning platform designed to grow. Learners work through an English course in a dedicated learner app, administrators use a separate admin console, and an AI assistant supports learners along the way. It is a real multi-part system rather than a single front end.",
+      "WeLearn is a learning management system designed for phones first. Every learner signs up, logs in and gets their own hub: a personal dashboard that keeps their learning in one place. It is an English rebuild of the WeLearn LMS, whose original edition serves more than 23,000 users.",
     problem:
-      "Learners and administrators have very different needs. A single interface would serve neither well, so each needed its own purpose-built product backed by shared services.",
+      "The original interface served a large user base but only in its original language. The goal was to rebuild it as a clean, product-grade English experience without carrying over every screen.",
     built: [
-      "A learner app for working through the English course, Units 1–3.",
-      "A dedicated admin console, separate from the learner experience.",
-      "An AI learning assistant powered by the OpenAI API.",
-      "One API behind both the learner app and the admin console.",
+      "Sign up and log in with a personal account.",
+      "A personal hub: each learner lands on their own space instead of a generic home page.",
+      "Mobile-first layouts designed for small screens first.",
+      "A fully English interface, with copy and labels written for English-speaking learners.",
     ],
-    features: ["Learner app", "Admin console", "AI assistant", "Shared API", "Unit-based course"],
+    features: ["Sign up / log in", "Personal hub", "Mobile-first", "English UI"],
     design: [
-      "Two products, one system: learners and administrators each get an interface made for them.",
-      "A structured learning path: the course is organised into units so learners always know where they are.",
+      "Clarity over feature parity: screens such as reward listings were open to being simplified or cut so the app stays clean and intuitive.",
+      "A teal identity carried through the browser theme colour and the interface.",
+      "Rebuilt from screens alone: with no UI source code, the information architecture, component patterns and flows were reconstructed from the existing interface, then redesigned.",
+      "A safe-area aware layout for modern phones.",
     ],
     implementation: [
-      "Built with growth in mind: the learner app, admin console and API are separate parts, so each can change independently as the user base grows.",
-      "AI built in: an assistant is part of the learning experience instead of a separate tool.",
-      "Hosted on Render. If the demo has been idle, the first request may take a few seconds.",
+      "Git-to-production workflow: deployed from Git to Vercel, so the live demo updates with a push.",
+      "Product-grade scope: the English counterpart of a product with a large existing user base, not a throwaway demo.",
     ],
   },
 ];

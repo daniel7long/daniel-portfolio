@@ -42,3 +42,21 @@
   color: var(--blue-1);
   transform: rotate(-1.5deg);
 }
+
+.contact__social {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.contact__icon {
+  display: inline-flex;
+  color: #fff;
+  border-radius: 6px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.contact__icon:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
