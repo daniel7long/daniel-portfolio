@@ -1,0 +1,44 @@
+/* GitHub link + handwritten quote in the footer (imported by Contact.jsx) */
+
+.contact__github {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  width: fit-content;
+}
+
+.contact__github svg {
+  color: #fff;
+}
+
+.contact__github:hover {
+  color: var(--blue-1);
+}
+
+.contact__quote {
+  margin: 0;
+  padding: 48px 0 8px;
+  text-align: center;
+}
+
+.contact__quote blockquote {
+  margin: 0 auto;
+  max-width: 28ch;
+  font-family: "Reenie Beanie", "Segoe Print", "Bradley Hand", cursive;
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  line-height: 1.05;
+  color: #dbe4f5;
+  transform: rotate(-1.5deg);
+}
+
+.contact__quote figcaption {
+  margin-top: 14px;
+  font-family: "Reenie Beanie", "Segoe Print", "Bradley Hand", cursive;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  color: var(--blue-1);
+  transform: rotate(-1.5deg);
+}

@@ -19,7 +19,7 @@ export const about = {
   headlineHighlight: "precision.",
   paragraphs: [
     "I'm Daniel Long, a graduate student at Carnegie Mellon University studying Human-Computer Interaction and Applied Linguistics. I focus on building clean, responsive interfaces and web applications that are easy to use.",
-    "Working across UX design and front-end development lets me move from user research and prototypes to production-ready code, and keep the user's needs in view at every step.",
+    "Working across front-end and back-end development lets me take an idea from user research and prototypes all the way to production-ready code, while keeping the user's needs in view at every step.",
   ],
   cards: [
     { title: "Frontend", text: "HTML5, CSS3, JavaScript, React, responsive UI" },

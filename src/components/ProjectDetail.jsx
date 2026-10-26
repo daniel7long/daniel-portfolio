@@ -65,8 +65,10 @@ export default function ProjectDetail({ id }) {
     problem,
     built,
     features,
+    design,
     implementation,
     outcome,
+    roadmap,
     repo,
   } = project;
 
@@ -172,19 +174,29 @@ export default function ProjectDetail({ id }) {
               <Chips items={features} />
             </Row>
           )}
+          {design && design.length > 0 && (
+            <Row label="Design & UX highlights">
+              <DashList items={design} />
+            </Row>
+          )}
           {stack && stack.length > 0 && (
             <Row label="Technology stack">
               <Chips items={stack} />
             </Row>
           )}
           {implementation && implementation.length > 0 && (
-            <Row label="Implementation details">
+            <Row label="Engineering highlights">
               <DashList items={implementation} />
             </Row>
           )}
           {outcome && (
             <Row label="Outcome">
               <p>{outcome}</p>
+            </Row>
+          )}
+          {roadmap && roadmap.length > 0 && (
+            <Row label="What's next">
+              <DashList items={roadmap} />
             </Row>
           )}
           <Row label="Links">

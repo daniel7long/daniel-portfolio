@@ -17,7 +17,7 @@ export const site = {
     taglineStart: "Simplicity is the",
     taglineHighlight: "ultimate sophistication.",
     subline:
-      "Hi, I'm Daniel, a front-end developer and UX designer who builds intuitive, functional products that solve real user problems.",
+      "Hi, I'm Daniel, a front-end developer who builds intuitive, functional products that solve real user problems.",
     primaryCta: { label: "View my work", href: "#work" },
     secondaryCta: { label: "Get in touch", href: "#contact" },
   },
@@ -35,7 +35,11 @@ export const site = {
       "5000 Forbes Avenue",
       "Pittsburgh, PA 15213",
     ],
-    // TODO: replace with your real LinkedIn profile URL
-    linkedin: { label: "My LinkedIn", href: "https://www.linkedin.com/in/your-handle" },
+    github: { label: "My GitHub", href: "https://github.com/daniel7long" },
+    // Shown in handwriting at the very bottom of the site.
+    quote: {
+      text: "People who are crazy enough to think they can change the world are the ones who do.",
+      author: "Steve Jobs",
+    },
   },
 };
