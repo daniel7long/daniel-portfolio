@@ -17,7 +17,7 @@ export const site = {
     taglineStart: "Simplicity is the",
     taglineHighlight: "ultimate sophistication.",
     subline:
-      "Hi, I'm Daniel, a full-stack developer who builds intuitive, functional products that solve real user problems.",
+      "Hi, I'm Daniel, a UX designer and full-stack developer who builds intuitive, functional products that solve real user problems.",
     primaryCta: { label: "View my work", href: "#work" },
     secondaryCta: { label: "Get in touch", href: "#contact" },
   },
@@ -25,7 +25,7 @@ export const site = {
     eyebrow: "My Work",
     title: "Selected Projects",
     intro:
-      "Explore my front-end, full-stack, and AI-powered work, and more projects are on the way!",
+      "Explore my UX, full-stack, and AI-powered work, and more projects are on the way!",
   },
   contact: {
     title: "Get in touch",
