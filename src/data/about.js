@@ -18,14 +18,14 @@ export const about = {
   headlineStart: "Designer's eye, developer's",
   headlineHighlight: "precision.",
   paragraphs: [
-    "I'm Daniel Long, a graduate student at Carnegie Mellon University studying Human-Computer Interaction and Applied Linguistics. I focus on building clean, responsive interfaces and web applications that are easy to use.",
+    "I'm Daniel Long, a UX designer and full-stack developer with over 6 years of industry experience. I focus on building clean, responsive interfaces and web applications that are easy to use.",
     "Working across front-end and back-end development lets me take an idea from user research and prototypes all the way to production-ready code, while keeping the user's needs in view at every step.",
   ],
   cards: [
-    { title: "Frontend", text: "HTML5, CSS3, JavaScript, React, responsive UI" },
-    { title: "Full stack", text: "Node.js, Express, REST APIs, Python" },
+    { title: "Frontend", text: "HTML, CSS, JavaScript, React, TypeScript, Responsive UI" },
+    { title: "Backend", text: "Node.js, Express, REST APIs, Python" },
     { title: "Design", text: "User research, wireframing, prototyping, usability testing" },
     { title: "Exploring", text: "LLM-powered learning tools, speech and language technology" },
   ],
-  pills: ["HCI graduate student", "Front-end developer", "UX designer"],
+  pills: ["UX designer", "Full-stack developer", "HCI practitioner"],
 };
