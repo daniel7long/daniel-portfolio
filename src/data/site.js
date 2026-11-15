@@ -3,7 +3,7 @@
 export const site = {
   name: "Daniel Long",
   // Small line under your name in the top-left corner.
-  title: "Full-Stack Developer",
+  title: "Design Engineer",
   // Your own "DL" icon: put the file in /public/images/ with this exact name
   // (or change the path). If the file is missing, a "DL" badge is shown instead.
   logo: "/images/dl-logo.png",
