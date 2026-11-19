@@ -19,11 +19,11 @@ The site is itself a small product: data-driven, dependency-light, fast, accessi
 
 | # | Project | What it is | Stack |
 | --- | --- | --- | --- |
-| 01 | **Langogo** — Speak Without the Fear | Low-anxiety speaking practice for six languages (CMU Online Learning Center) | React Native, Expo, Python, FastAPI |
-| 02 | **SoftUtter** — LLM-Driven Speech Scaffolding | Turns a rough spoken or typed attempt into a target sentence with audio | React 19, Vite, JSX, Python, SQLite |
+| 01 | **SnowBall+** — Invest Smarter on Real Market Data | Investing web app: portfolios, trading and live market news, deployed on AWS, with English and Simplified Chinese UI | AWS, market data API |
+| 02 | **Langogo** — Speak Without the Fear | Low-anxiety speaking practice in 16 languages with an AI Free Talk mode and a charity Gift Menu (CMU Online Learning Center) | React Native, Expo, Python, FastAPI |
 | 03 | **Lumina** — Online Course Learning Platform | A new version of CMU's Open Learning Initiative-style platform: learner app, admin console and API | React 19, JSX, Node.js, OpenAI API |
 | 04 | **iRead** — Reading That Feels Natural | Dyslexia-friendly reading app: syllable help, read-aloud, word bank | React 19, Vite 7, TypeScript, CSS |
-| 05 | **AP Master** — Turn Mistakes into Top Scores | AP exam prep with an Errors Bank that turns wrong answers into study material | TypeScript, React, Vite, Render |
+| 05 | **SoftUtter** — LLM-Driven Speech Scaffolding | Turns a rough spoken or typed attempt into a target sentence with audio | React 19, Vite, JSX, Python, SQLite |
 | 06 | **WeLearn** — Your Whole Learning Journey in One Hub | Mobile-first English rebuild of an LMS whose original edition serves 23,000+ users | React 19, TypeScript, Vite, CSS |
 
 Every project has a dedicated details page on the site (`#/project/<id>`) with the sections: Overview, Tech stack, The problem, What I built, Key features, Design & UX highlights, Engineering highlights and What's next.
@@ -33,9 +33,9 @@ Every project has a dedicated details page on the site (`#/project/<id>`) with t
 - **Research to production.** iRead began as a full UX case study (research, wireframes, hi-fi mock-ups, an interactive prototype) and was then built as an installable PWA. Langogo was redesigned from scratch after user testing showed the first UI felt rough, keeping every feature.
 - **A real design-to-code pipeline.** In Langogo, Figma variables (Primitives, Tokens with Light and Dark modes, Layout) are exported with the Design Tokens plugin to `design_tokens.json`, which generates the app's theme file. A colour or spacing change in Figma flows straight into code.
 - **One codebase, many surfaces.** Langogo's Expo / React Native code targets native devices and the live web build. iRead serves phone and tablet layouts from a single codebase.
-- **Full-stack and AI-integrated.** SoftUtter and Lumina pair React front ends with Python and Node back ends and LLM features. Langogo scores pronunciation through Azure Speech behind a FastAPI service. Lumina is a multi-part system (learner app, admin console, shared API) built so each part can change independently.
-- **Global and multilingual.** Langogo and SoftUtter support French, Spanish, German, Japanese, Korean and Mandarin Chinese, including non-Latin scripts.
-- **Product judgment.** WeLearn was reconstructed from screens alone, with no UI source code, and was deliberately simplified rather than copied screen for screen. AP Master carries over an existing product's information architecture and re-designs it for the web.
+- **Full-stack and AI-integrated.** SoftUtter and Lumina pair React front ends with Python and Node back ends and LLM features. Langogo scores pronunciation through Azure Speech behind a FastAPI service and adds an AI Free Talk mode. Lumina is a multi-part system (learner app, admin console, shared API) built so each part can change independently.
+- **Global and multilingual.** Langogo supports 16 languages and SoftUtter six (French, Spanish, German, Japanese, Korean and Mandarin Chinese), including non-Latin scripts.
+- **Product judgment.** WeLearn was reconstructed from screens alone, with no UI source code, and was deliberately simplified rather than copied screen for screen. SnowBall+ is deployed on AWS and pulls real market data through an API.
 
 ---
 
