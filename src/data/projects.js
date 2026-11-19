@@ -35,6 +35,56 @@
 
 export const projects = [
   {
+    id: "snowball",
+    name: "SnowBall+",
+    thumbnail: "/images/thumb-snowball.jpg",
+    type: "Cloud-Deployed Web App",
+    title: "SnowBall+, Invest Smarter on Real Market Data",
+    abstract:
+      "A full-featured investing web app that brings portfolios, trading and live market news together, deployed on AWS.",
+    stack: ["AWS", "Market Data API", "Web App", "EN / 中文 UI"],
+    liveDemo: "https://d2fb4sl6p09rkr.cloudfront.net",
+
+    role: "Full-Stack Developer",
+    status: "Deployed on AWS",
+    overview:
+      "SnowBall+ puts the core of a modern brokerage experience in one clean, sky-blue web app: build portfolios, trade stocks, funds and bonds, and follow the financial news that moves them. Prices, trends and headlines come from real market data through an API, and the whole app is deployed on AWS for reliable, always-on access.",
+    problem:
+      "Investing tools are usually either too complex for newcomers or locked behind real money and real risk. SnowBall+ makes the full workflow, from researching to building a portfolio to placing a trade, approachable, and keeps it grounded in real market data.",
+    built: [
+      "Portfolio building and tracking, with holdings and performance at a glance.",
+      "Trading across stocks, funds and bonds.",
+      "A finance news feed alongside live prices, trends and changes.",
+      "A Simplified Chinese interface option next to English.",
+      "Symbol and company search, a live-prices toggle and adjustable text size (A− / A+) for comfortable reading.",
+      "Cloud deployment on AWS, built to move from a first release to a custom domain.",
+    ],
+    features: [
+      "Portfolios",
+      "Stocks, funds and bonds",
+      "Live market data",
+      "Finance news",
+      "English + Simplified Chinese",
+      "Deployed on AWS",
+    ],
+    design: [
+      "A calm sky-blue identity that keeps dense financial data readable.",
+      "Information hierarchy built around the questions investors ask first: how am I doing, what moved, what should I look at next.",
+      "A bilingual interface so the product works for English and Chinese-speaking users.",
+    ],
+    implementation: [
+      "Deployed on AWS, giving the app production-grade hosting rather than a local demo.",
+      "Real prices, trends and news are pulled from a market data API instead of being hard-coded.",
+      "Internationalisation layer that switches the whole UI between English and Simplified Chinese.",
+      "Domain and hosting choices weighed for cost and simplicity (Route 53 versus Vercel) before going live on a custom domain.",
+    ],
+    roadmap: [
+      "Custom domain with HTTPS.",
+      "Richer analytics and watchlists.",
+      "More asset types and deeper news filtering.",
+    ],
+  },
+  {
     id: "langogo",
     name: "Langogo",
     thumbnail: "/images/thumb-langogo.jpg",
@@ -90,50 +140,6 @@ export const projects = [
       "Public launch with sign-up via Google account or personal email.",
       "Keep growing the dialogue and lesson library across all 16 languages.",
       "Testing on physical phones with Expo Go.",
-    ],
-  },
-  {
-    id: "softutter",
-    name: "SoftUtter",
-    thumbnail: "/images/thumb-softutter.jpg",
-    type: "AI-Powered Web App",
-    title: "SoftUtter, LLM-Driven Speech Scaffolding",
-    abstract:
-      "An LLM-driven speech scaffolding tool that turns a learner's rough attempt into a target sentence with audio, so they can hear it, repeat it and make it their own.",
-    stack: ["React 19", "Vite", "JSX", "Python", "SQLite"],
-    liveDemo: "https://softutter.vercel.app",
-    warmup: "https://softutter.onrender.com",
-
-    role: "Front-End Developer",
-    status: "Live demo · SoftUtter 2.0",
-    overview:
-      "Learners often know what they want to say but not how to say it in a new language. SoftUtter takes a rough attempt, spoken or typed, and uses a large language model to scaffold it into a target sentence with audio. The first version was a focused prototype for French learners; SoftUtter 2.0 is a redesigned, much richer web app that supports six languages.",
-    problem:
-      "Learners get stuck between an idea and the words for it. The tool needed to meet them at that gap and give them a sentence they can hear, repeat and keep.",
-    built: [
-      "Compose: record your voice (with a timer) or type what you want to say.",
-      "Result: the scaffolded sentence with playable audio.",
-      "Shadow: repeat after the target audio.",
-      "Conversation mode, a phrasebook of saved phrases and a \"My sounds\" tracker.",
-      "A language picker for French, Spanish, German, Japanese, Korean and Mandarin Chinese.",
-    ],
-    features: [
-      "Voice or text input",
-      "Scaffolded sentences",
-      "Audio shadowing",
-      "Conversation mode",
-      "Phrasebook",
-      "Six languages",
-    ],
-    design: [
-      "A soft, friendly brand: a blue-to-teal speech bubble with lips and sound waves, with \"Soft\" in blue and \"Utter\" in teal.",
-      "Redesign before rebuild: compose, result, shadow, conversation and phrasebook screens were designed and approved first, then built.",
-      "A deliberately small interaction loop: say it, scaffold it, hear it, repeat it.",
-    ],
-    implementation: [
-      "Six languages, including non-Latin scripts (Japanese, Korean and Mandarin Chinese) alongside French, Spanish and German.",
-      "Grew from a minimal prototype tool into a multi-screen web application.",
-      "Recording, generated target audio and shadowing all sit in one interaction.",
     ],
   },
   {
@@ -208,38 +214,47 @@ export const projects = [
     roadmap: ["Complete the remaining tablet-landscape screens."],
   },
   {
-    id: "ap-master",
-    name: "AP Master",
-    thumbnail: "/images/thumb-ap-master.jpg",
-    type: "Mobile-First Web App",
-    title: "AP Master, Turn Mistakes into Top Scores",
+    id: "softutter",
+    name: "SoftUtter",
+    thumbnail: "/images/thumb-softutter.jpg",
+    type: "AI-Powered Web App",
+    title: "SoftUtter, LLM-Driven Speech Scaffolding",
     abstract:
-      "A mobile-first web app that helps students around the world prepare for AP exams with practice, trial courses and a personal study hub.",
-    stack: ["TypeScript", "React", "Vite", "Render"],
-    liveDemo: "https://ap-master.onrender.com",
+      "An LLM-driven speech scaffolding tool that turns a learner's rough attempt into a target sentence with audio, so they can hear it, repeat it and make it their own.",
+    stack: ["React 19", "Vite", "JSX", "Python", "SQLite"],
+    liveDemo: "https://softutter.vercel.app",
+    warmup: "https://softutter.onrender.com",
 
     role: "Front-End Developer",
-    status: "Live demo",
+    status: "Live demo · SoftUtter 2.0",
     overview:
-      "AP Master brings structured practice, trial courses and a personal study hub together in one calm, teal-themed experience. It is an English-language web adaptation of an existing mobile product: the information architecture and visual language were carried over, then redesigned and rebuilt for the web.",
+      "Learners often know what they want to say but not how to say it in a new language. SoftUtter takes a rough attempt, spoken or typed, and uses a large language model to scaffold it into a target sentence with audio. The first version was a focused prototype for French learners; SoftUtter 2.0 is a redesigned, much richer web app that supports six languages.",
     problem:
-      "AP students need focused practice and a way to learn from their mistakes. The existing product served one language market, so it needed an English version that works well on phones.",
+      "Learners get stuck between an idea and the words for it. The tool needed to meet them at that gap and give them a sentence they can hear, repeat and keep.",
     built: [
-      "Practice: 20 practice sets for every AP subject, including each subject's branches.",
-      "Courses: three trial lessons, with a clear next step to contact a consultant for the full programme.",
-      "Profile hub: records of past practice, an Errors Bank of questions you got wrong, and custom practice.",
+      "Compose: record your voice (with a timer) or type what you want to say.",
+      "Result: the scaffolded sentence with playable audio.",
+      "Shadow: repeat after the target audio.",
+      "Conversation mode, a phrasebook of saved phrases and a \"My sounds\" tracker.",
+      "A language picker for French, Spanish, German, Japanese, Korean and Mandarin Chinese.",
     ],
-    features: ["Practice sets", "Trial courses", "Errors Bank", "Custom practice", "Records"],
+    features: [
+      "Voice or text input",
+      "Scaffolded sentences",
+      "Audio shadowing",
+      "Conversation mode",
+      "Phrasebook",
+      "Six languages",
+    ],
     design: [
-      "A teal visual identity applied consistently, down to the browser theme colour.",
-      "Mobile-first and safe-area aware, so content can extend to the screen edges on notched phones.",
-      "An English UI for a global audience, adapted from an existing product's screens and Figma styles.",
-      "Mistakes become a feature: the Errors Bank turns wrong answers into study material.",
+      "A soft, friendly brand: a blue-to-teal speech bubble with lips and sound waves, with \"Soft\" in blue and \"Utter\" in teal.",
+      "Redesign before rebuild: compose, result, shadow, conversation and phrasebook screens were designed and approved first, then built.",
+      "A deliberately small interaction loop: say it, scaffold it, hear it, repeat it.",
     ],
     implementation: [
-      "Static-site deployment on Render, so there is no server to maintain.",
-      "A Git-based workflow: code lives on GitHub and is deployed to Render from the repository.",
-      "Three clearly separated flows (Practice, Courses and Profile hub) share one visual system.",
+      "Six languages, including non-Latin scripts (Japanese, Korean and Mandarin Chinese) alongside French, Spanish and German.",
+      "Grew from a minimal prototype tool into a multi-screen web application.",
+      "Recording, generated target audio and shadowing all sit in one interaction.",
     ],
   },
   {
