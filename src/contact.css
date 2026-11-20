@@ -12,7 +12,7 @@
 }
 
 .contact__github svg {
-  color: #fff;
+  color: var(--text);
 }
 
 .contact__github:hover {
@@ -31,7 +31,7 @@
   font-family: "Reenie Beanie", "Segoe Print", "Bradley Hand", cursive;
   font-size: clamp(2rem, 4.2vw, 3rem);
   line-height: 1.05;
-  color: #dbe4f5;
+  color: var(--text);
   transform: rotate(-1.5deg);
 }
 
@@ -51,7 +51,7 @@
 
 .contact__icon {
   display: inline-flex;
-  color: #fff;
+  color: var(--text);
   border-radius: 6px;
   transition: transform 0.2s, opacity 0.2s;
 }
