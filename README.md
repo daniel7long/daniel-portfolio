@@ -7,7 +7,7 @@
 
 > *Simplicity is the ultimate sophistication.*
 
-The home of my work as a front-end developer and HCI graduate student at **Carnegie Mellon University** (M.S. Human-Computer Interaction, M.A. Applied Linguistics, May 2027). It presents six shipped products, each with a live demo and a full case study covering the problem, the design decisions, the engineering and what comes next.
+The home of my work as a software engineer from **Carnegie Mellon University**. It presents six shipped products, each with a live demo and a full case study covering the problem, the design decisions, the engineering and what comes next.
 
 The site is itself a small product: data-driven, dependency-light, fast, accessible and instrumented. This README covers how it is built and what the projects behind it are.
 
