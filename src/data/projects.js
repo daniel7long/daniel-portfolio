@@ -39,7 +39,7 @@ export const projects = [
     name: "SnowBall+",
     thumbnail: "/images/thumb-snowball.jpg",
     type: "Cloud-Deployed Web App",
-    title: "SnowBall+, Invest Smarter on Real Market Data",
+    title: "SnowBall+, Invest Smarter on Real-Time Market Data",
     abstract:
       "A full-featured investing web app that brings portfolios, trading and live market news together, deployed on AWS.",
     stack: ["AWS", "Market Data API", "Web App", "EN / 中文 UI"],

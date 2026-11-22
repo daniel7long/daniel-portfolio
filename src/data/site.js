@@ -3,7 +3,7 @@
 export const site = {
   name: "Daniel Long",
   // Small line under your name in the top-left corner.
-  title: "Design Engineer",
+  title: "Software Engineer",
   // Your own "DL" icon: put the file in /public/images/ with this exact name
   // (or change the path). If the file is missing, a "DL" badge is shown instead.
   logo: "/images/dl-logo.png",
@@ -17,7 +17,7 @@ export const site = {
     taglineStart: "Simplicity is the",
     taglineHighlight: "ultimate sophistication.",
     subline:
-      "Hi, I'm Daniel, a UX designer and full-stack developer who builds intuitive, functional products that solve real user problems.",
+      "Hi, I'm Daniel, a software engineer and full-stack developer who builds intuitive, functional products that solve real user problems.",
     primaryCta: { label: "View my work", href: "#work" },
     secondaryCta: { label: "Get in touch", href: "#contact" },
   },
