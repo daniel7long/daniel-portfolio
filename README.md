@@ -19,7 +19,7 @@ The site is itself a small product: data-driven, dependency-light, fast, accessi
 
 | # | Project | What it is | Stack |
 | --- | --- | --- | --- |
-| 01 | **SnowBall+** — Invest Smarter on Real Market Data | Investing web app: portfolios, trading and live market news, deployed on AWS, with English and Simplified Chinese UI | AWS, market data API |
+| 01 | **SnowBall+** — Invest Smarter on Real-Time Market Data | Investing web app: portfolios, trading and live market news, deployed on AWS, with English and Simplified Chinese UI | AWS, market data API |
 | 02 | **Langogo** — Speak Without the Fear | Low-anxiety speaking practice in 16 languages with an AI Free Talk mode and a charity Gift Menu (CMU Online Learning Center) | React Native, Expo, Python, FastAPI |
 | 03 | **Lumina** — Online Course Learning Platform | A new version of CMU's Open Learning Initiative-style platform: learner app, admin console and API | React 19, JSX, Node.js, OpenAI API |
 | 04 | **iRead** — Reading That Feels Natural | Dyslexia-friendly reading app: syllable help, read-aloud, word bank | React 19, Vite 7, TypeScript, CSS |
